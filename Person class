@@ -1,0 +1,53 @@
+void main() {
+//   int total = add(10,20);
+//   print(total);
+
+  // JSON
+  Person person = Person(age: 20, name: "Hello", cities: ["Mumbai"]);
+  Map<String, dynamic> personJson = person.toJson();
+  print(personJson);
+
+  personJson['age'] = 25;
+  Person newPerson = Person.fromJson(personJson);
+
+  print(newPerson.age);
+}
+
+// class Person {
+//   int age;
+//   String name;
+//   List<String> cities;
+//   String? gender;
+
+//   Person({required this.age, required this.name, required this.cities, this.gender});
+// }
+
+class Person {
+  final String name;
+  final int age;
+  final List<String> cities;
+
+  Person({
+    required this.name,
+    required this.age,
+    required this.cities,
+  });
+
+  factory Person.fromJson(Map<String, dynamic> json) {
+    return Person(
+      name: json['name'] as String,
+      age: json['age'] as int,
+      cities: List<String>.from(json['cities'] as List<dynamic>),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'age': age,
+      'cities': cities,
+    };
+  }
+}
+
+// Make a model class that conversts from and to - JSON
