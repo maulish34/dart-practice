@@ -1,0 +1,7 @@
+name: my_practice_project
+
+environment:
+  sdk: "^3.8.0"
+dependencies:
+  nanoid: ^1.0.0
+  uuid: ^4.5.1
