@@ -1,5 +1,6 @@
 // 1. Import the Material library, which contains all the Material Design widgets.
 import 'package:flutter/material.dart';
+import 'profile_card.dart';
 
 // 2. The main() function is the entry point for the app.
 //    runApp() tells Flutter to run the given widget as the root of the app.
@@ -20,20 +21,26 @@ class MyApp extends StatelessWidget {
     // 5. MaterialApp is a wrapper that provides many features needed for an app,
     //    like theming and navigation.
     return MaterialApp(
-      // 6. Scaffold is a basic layout for a Material Design page.
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.blueAccent,
+      ),
       home: Scaffold(
-        // 7. Center is a layout widget that centers its child.
-        body: Center(
-          // 8. Text is the widget that displays text.
-          child: Text('Hello, Flutter!', style: TextStyle(background: Paint()..color = Colors.yellow, 
-            // 9. The style property allows you to customize the text appearance.
-            
-              fontSize: 24, // Set the font size to 24 pixels.
-              color: Colors.black, // Set the text color to black.
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFFE3F2FD), Color(0xFFF1F8E9)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
+          ),
+          child: const Center(
+            child: ProfileCard(),
           ),
         ),
       ),
     );
   }
 }
+
+// ...existing code...
